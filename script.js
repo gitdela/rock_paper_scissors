@@ -14,4 +14,42 @@ function computerPlay() {
     return randomCompSelect;
 }
 
-console.log(computerPlay());
+
+function singleRound(playerSelection, computerSelection) {
+    console.log('1 ', playerSelection, '2 ', computerSelection)
+    switch(playerSelection) {
+        case 'rock':
+            if (computerSelection === 'rock') {
+                return 'Draw';
+            } else if (computerSelection === 'paper') {
+                return 'You lose! Rock gets covered by Paper';
+            } else if (computerSelection === 'scissors') {
+                return 'You win! Rock crashes Scissors';
+            }
+            break;
+        case 'paper':
+            if (computerSelection === 'rock') {
+                return 'You win! Paper covers Rock';
+            } else if (computerSelection === 'paper') {
+                return 'Draw';
+            } else if (computerSelection === 'scissors') {
+                return 'You lose! Paper gets cut by Scissors';
+            }
+            break;
+        case 'scissors':
+            if (computerSelection === 'rock') {
+                return 'You lose! Scissors gets crashed by Rock';
+            } else if (computerSelection === 'paper') {
+                return 'You win! Scissors cuts Paper';
+            } else if (computerSelection === 'scissors') {
+                return 'Draw! You both picked Scissors';
+            }
+            break;
+    }
+}
+
+
+let playerSelectionGs = prompt('Select one of rock, paper, scissors: ', 'Case insensitive but check the spelling').toLowerCase();
+let computerSelectionGs = computerPlay();
+
+console.log(singleRound(playerSelectionGs, computerSelectionGs));
